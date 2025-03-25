@@ -1,0 +1,308 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팀원 소개 페이지</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            background-color: rgb(243, 227, 162);
+        }
+
+        .member-image {
+            height: 250px;
+            
+            
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .member-info {
+            padding: 20px;
+        }
+
+        .member-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .member-role {
+            font-size: 1rem;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+
+        .member-bio {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+
+        .member-contact {
+            display: flex;
+            gap: 10px;
+        }
+
+        .member-contact a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .member-contact a:hover {
+            color: #3498db;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>리테일 팀을 소개합니다</h1>
+            <p>함께 일하는 멋진 팀원들을 만나보세요</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="team-grid">
+            <!-- 팀원 1 -->
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="https://dynamic-assets.gather.town/v2/sprite-profile/avatar-Owh3rJLGGrWnafZevZoC.wCU6wb6fioY3Pzh30vsm.LaYp9uEFSIGpl0kTCQFZ.ggvI8WY6R3c0ia76wwhE.mktyIyz2T_2329h7LOb1.UJy0fOWWJ9sdtdTfnVDz.yWfAMVczQuewJd3tqomw.WpCim8nWSlGhgfeifxPt.0scl4ZP84mAOErgLs62e.ihNno1Nxqh3PJPWfbI8f.hS9SRzfqDZRTTft5Xk4h.png?d="
+                        alt="강창선 프로">
+                </div>
+                <div class="member-info">
+                    <h2 class="member-name">강창선</h2>
+                    <p class="member-role">ENTJ/</p>
+                    <p class="member-bio">열심히 배우겠습니다. 잘 부탁드립니다.</p>
+                    <div class="member-contact">
+                        <a href="https://github.com/sunny-size-up">🔗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 팀원 2 -->
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="https://dynamic-assets.gather.town/v2/sprite-profile/avatar-ty0CoZao8eIAgVnSKFg7.8EWFG3DNPDsJHPq6d51D.3qVV21N1SZW8avS5xJqX.nzC7ztPaSuMw0mR8fvDE.uwy1lPXIgMvfadVCHFeR.z-2tj4_qTlyX7NR5rCz4.BVwiDkSKRNmEUF8d2Ohj.CLumQltARfCaKsKf2eWY.CnmP3rlixWcGqy2Hp8IW.FjSwJQVd87iQ8oV28Va1.i2DH7LwTQe-rPYlnEhTM.png?d=."
+                        alt="김철수 프로필">
+                </div>
+                <div class="member-info">
+                    <h2 class="member-name">김선호</h2>
+                    <p class="member-role">INTP/게임, 보드게임, 재밌는 영화</p>
+                    <p class="member-bio">편하게 지내고 싶은 사람입니다. 모두에게 내적친밀감이 있어 즐겁게 같이 교육받으면 좋을 것 같아요! 현재는 백엔드 개발에 관심을 가지고
+                        있어요. 데이터의 무결성을 보장하며 프론트를 연결하고싶습니다.</p>
+                    <div class="member-contact">
+                        <a href="https://github.com/Sunhokim2" target="_blank">🔗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 팀원 3 -->
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="https://github.com/user-attachments/assets/57a91fbc-2474-4945-84ba-72b3ddf56e27">
+                </div>
+                <div class="member-info">
+                    <h2 class="member-name">박서희</h2>
+                    <p class="member-role">ISTP/독서,게임</p>
+                    <p class="member-bio">Java와 SpringBoot로 백엔드를 공부해왔습니다. 다같이 열심히 공부해서 좋은 결과 만들고 싶습니다. 잘 부탁드립니다.</p>
+                    <div class="member-contact">
+                        <a href="https://github.com/seohee-P" target="_blank">🔗</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 팀원 4 -->
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="https://avatars.githubusercontent.com/u/170912062?v=4" alt="박지민 프로필">
+                </div>
+                <div class="member-info">
+                    <h2 class="member-name">복준수</h2>
+                    <p class="member-role">INTJ/운동</p>
+                    <p class="member-bio">데이터 분석과 엔지니어링에 관심이 있습니다. 6개월동안 잘 부탁드립니다. 감사합니다 :)</p>
+                    <div class="member-contact">
+                        <a href="https://github.com/BOKJUNSOO" target="_blank">🔗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 팀원 5 -->
+            <div class="team-member">
+                <div class="member-image">
+                    <img
+                        src=" https://dynamic-assets.gather.town/v2/sprite-profile/avatar-XKiK1zaPbBlf0d3FJGoi.9OIUUtILS6KdOK-0K2Ar.2rOeLyhVn0rLAx7uJCnR.EhWakmxiRuuoGNNT1i7W.qXZsUMXd6wr2ICupUTcz.u19YAVp3r9F4tOr8MCsb.png?d=.">
+                </div>
+                <div class="member-info">
+                    <h2 class="member-name">심규환</h2>
+                    <p class="member-role">ISTJ/영화감상</p>
+                    <p class="member-bio">기존에 백엔드 개발자로 공부하고 있었습니다.
+                        이번 교육을 통해 좋은 분들과 함께 성장하고 싶습니다.
+                        화이팅~</p>
+                    <div class="member-contact">
+                        <a href="https://naver.com" target="_blank">🔗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 팀원 6 -->
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="https://dynamic-assets.gather.town/v2/sprite-profile/avatar-ty0CoZao8eIAgVnSKFg7.4xmWIf1PQW-ly-MG4VD9.xpDOheMZTV6E5a0pBcqu.EhWakmxiRuuoGNNT1i7W.UJy0fOWWJ9sdtdTfnVDz.khMpTtSDafVUsQtV2Tbk.O6jcAUe4T-2Y99HJIURB.png?d=."
+                        alt="임다희 프로필">
+                </div>
+                <div class="member-info">
+                    <h2 class="member-name">임다희</h2>
+                    <p class="member-role">INFJ/베이킹</p>
+                    <p class="member-bio">아직 조금 어색하지만 앞으로 더 친해지면서 마지막까지 모든분들과 재밌게 교육을
+                        마쳤으면 좋겠어요 ! 잘부탁드립니다. </p>
+                    <div class="member-contact">
+                        <a href="https://www.notion.so/2025-79c6982ad81c425aae02c4147ff154b1?pvs=4"
+                            target="_blank">🔗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 팀원 7 -->
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="https://img.freepik.com/free-vector/3d-cartoon-young-woman-smiling-circle-frame-character-illustration-vector-design_40876-3100.jpg"
+                        alt="황세현 프로필">
+                </div>
+                <div class="member-info">
+                    <h2 class="member-name">황세현</h2>
+                    <p class="member-role">ISTJ/배드민턴</p>
+                    <p class="member-bio">지금까지는 백엔드 위주의 개발을 진행해왔고,
+                        현재는 데이터 분석과 처리에 관심이 많습니다!
+                        취미는 배드민턴이고, 집 근처에 실내배드민턴장이 있어 종종 이용하고 있습니다.
+                        서로 도와가며 성장할 수 있는 시간이 되었으면 좋겠습니다.</p>
+                    <div class="member-contact">
+                        <a href="https://github.com/goozip2" target="_blank">🔗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8번째 -->
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="https://avatars.githubusercontent.com/u/108779266?s=400&u=adab760f7585abf4172498ac7ee1e16409108405&v=4"
+                        alt="황순욱 프로필">
+                </div>
+                <div class="member-info">
+                    <h2 class="member-name">황순욱</h2>
+                    <p class="member-role">INFP/맛집탐방</p>
+                    <p class="member-bio">나만의 어플리케이션을 만들어서 수익화하는 것이 목표인 초보 개발자입니다. 공부한 것들을 같이 얘기하면서 공유하는 것을 좋아합니다.
+                        프론트엔드나 백엔드 심화 스터디 관심있는분들은 함께했으면 좋겠습니다</p>
+                    <div class="member-contact">
+                        <a href="https://github.com/SoonWookHwang" target="_blank">🔗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9번째 -->
+
+            <div class="team-member">
+                <div class="member-image"> <img
+                        src="https://dynamic-assets.gather.town/v2/sprite-profile/avatar-ty0CoZao8eIAgVnSKFg7.4xmWIf1PQW-ly-MG4VD9.xpDOheMZTV6E5a0pBcqu.EhWakmxiRuuoGNNT1i7W.UJy0fOWWJ9sdtdTfnVDz.O6jcAUe4T-2Y99HJIURB.png?d="
+                        alt="정준희 프로필"> </div>
+                <div class="member-info">
+                    <h2 class="member-name">정준희</h2>
+                    <p class="member-role">INFP</p>
+                    <p class="member-bio">낯을 많이 가리는 편이지만 좋은 분들과 발전을 이뤄가는 시간이 됐으면 좋겠습니다!</p>
+                    <div class="member-contact"> 
+                        <a href=" https://github.com/dldh1218">🔗</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 리테일 팀. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

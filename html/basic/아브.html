@@ -1,0 +1,182 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+ <style>
+
+    .table {
+      background-color: #ffffff;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .table th, .table td {
+      vertical-align: middle;
+      text-align: center;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    .table th {
+      background-color: #17a2b8;
+      color: white;
+    }
+    .table td:hover {
+      background-color: rgba(10, 148, 169, 0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .bg1 {
+      width: 220px; height: 220px;
+      background-image: url(' https://dynamic-assets.gather.town/v2/sprite-profile/avatar-ty0CoZao8eIAgVnSKFg7.8EWFG3DNPDsJHPq6d51D.3qVV21N1SZW8avS5xJqX.nzC7ztPaSuMw0mR8fvDE.uwy1lPXIgMvfadVCHFeR.z-2tj4_qTlyX7NR5rCz4.BVwiDkSKRNmEUF8d2Ohj.CLumQltARfCaKsKf2eWY.CnmP3rlixWcGqy2Hp8IW.FjSwJQVd87iQ8oV28Va1.i2DH7LwTQe-rPYlnEhTM.png?d=.');
+      border-radius: 50%;
+      border: 2px solid aqua;
+      margin: 0 auto;
+      background-repeat: no-repeat;
+      background-position: center;
+      font-size: 20px;
+      text-align: center;
+      line-height: 220px;
+      color: white;
+      transition: transform 0.3s, background-color 0.3s;
+      transition: background-image 0.7s;
+    }
+    .bg1::after{
+        opacity: 0.7;
+    }
+    .bg1:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+      transform: scale(1.05);
+      background-image: url('https://imgs.jobkorea.co.kr/img1/user_photo/photo/2024/10/09/JK_GG_cCya2Z24100921285395.jpg');
+    }
+    .hobby1:hover{
+        color: rgb(36, 213, 122);
+        font-size: large;
+        font-weight: bold;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container mt-5">
+    <table class="table table-bordered border-info">
+      <tr>
+        <th>이름</th>
+        <th>소개사진</th>
+        <th>MBTI</th>
+        <th>취미</th>
+        <th>자기소개</th>
+      </tr>
+      <tr>
+        <td>김선호</td>
+        <td><div class="bg1"></div></td>
+        <td>INTP</td>
+        <td>
+            <p>
+            <span class="hobby1">게임</span>,
+            <span class="hobby1">보드게임</span>,
+            <span class="hobby1">재밌는 영화</span>
+            보는 것도 좋아합니다.
+            </p>
+        </td>
+        <td>안녕하세요. 김선호입니다. 편하게 지내고 싶은 사람입니다. 모두에게 내적친밀감이 있어 즐겁게 같이 교육받으면 좋을 것 같아요!</td>
+      </tr>
+      <tr>
+        <td>복준수</td>
+        <td><div class="bg1" style="background-image: url(https://dynamic-assets.gather.town/v2/sprite-profile/avatar-gV7nljNpXAGHgAEnbBWv.K8p3NkmZQ-q5J3kGECHr.6lc6LksrQBu_YmRwgodl.R-mO0WjmRySf-DdFAMmb.UJy0fOWWJ9sdtdTfnVDz.QXcJMjgtSjuPNzlhV-oM.RhTmC28lTQJ7MKeDlGwn.png?d=.);"></div></td>
+        <td>INTJ</td>
+        <td>
+            <p>
+            <span class="hobby1">운동</span>
+            </p>
+        </td>
+        <td>6개월동안 잘 부탁드립니다 .</td>
+      </tr>
+      <tr>
+        <td>김선호</td>
+        <td><div class="bg1"></div></td>
+        <td>INTP</td>
+        <td>
+            <p>
+            <span class="hobby1">게임</span>,
+            <span class="hobby1">보드게임</span>,
+            <span class="hobby1">재밌는 영화</span>
+            보는 것도 좋아합니다.
+            </p>
+        </td>
+        <td>안녕하세요. 김선호입니다. 편하게 지내고 싶은 사람입니다. 모두에게 내적친밀감이 있어 즐겁게 같이 교육받으면 좋을 것 같아요!</td>
+      </tr>
+      <tr>
+        <td>김선호</td>
+        <td><div class="bg1"></div></td>
+        <td>INTP</td>
+        <td>
+            <p>
+            <span class="hobby1">게임</span>,
+            <span class="hobby1">보드게임</span>,
+            <span class="hobby1">재밌는 영화</span>
+            보는 것도 좋아합니다.
+            </p>
+        </td>
+        <td>안녕하세요. 김선호입니다. 편하게 지내고 싶은 사람입니다. 모두에게 내적친밀감이 있어 즐겁게 같이 교육받으면 좋을 것 같아요!</td>
+      </tr>
+      <tr>
+        <td>김선호</td>
+        <td><div class="bg1"></div></td>
+        <td>INTP</td>
+        <td>
+            <p>
+            <span class="hobby1">게임</span>,
+            <span class="hobby1">보드게임</span>,
+            <span class="hobby1">재밌는 영화</span>
+            보는 것도 좋아합니다.
+            </p>
+        </td>
+        <td>안녕하세요. 김선호입니다. 편하게 지내고 싶은 사람입니다. 모두에게 내적친밀감이 있어 즐겁게 같이 교육받으면 좋을 것 같아요!</td>
+      </tr>
+      <tr>
+        <td>김선호</td>
+        <td><div class="bg1"></div></td>
+        <td>INTP</td>
+        <td>
+            <p>
+            <span class="hobby1">게임</span>,
+            <span class="hobby1">보드게임</span>,
+            <span class="hobby1">재밌는 영화</span>
+            보는 것도 좋아합니다.
+            </p>
+        </td>
+        <td>안녕하세요. 김선호입니다. 편하게 지내고 싶은 사람입니다. 모두에게 내적친밀감이 있어 즐겁게 같이 교육받으면 좋을 것 같아요!</td>
+      </tr>
+      <tr>
+        <td>김선호</td>
+        <td><div class="bg1"></div></td>
+        <td>INTP</td>
+        <td>
+            <p>
+            <span class="hobby1">게임</span>,
+            <span class="hobby1">보드게임</span>,
+            <span class="hobby1">재밌는 영화</span>
+            보는 것도 좋아합니다.
+            </p>
+        </td>
+        <td>안녕하세요. 김선호입니다. 편하게 지내고 싶은 사람입니다. 모두에게 내적친밀감이 있어 즐겁게 같이 교육받으면 좋을 것 같아요!</td>
+      </tr>
+      <tr>
+        <td>김선호</td>
+        <td><div class="bg1"></div></td>
+        <td>INTP</td>
+        <td>
+            <p>
+            <span class="hobby1">게임</span>,
+            <span class="hobby1">보드게임</span>,
+            <span class="hobby1">재밌는 영화</span>
+            보는 것도 좋아합니다.
+            </p>
+        </td>
+        <td>안녕하세요. 김선호입니다. 편하게 지내고 싶은 사람입니다. 모두에게 내적친밀감이 있어 즐겁게 같이 교육받으면 좋을 것 같아요!</td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
