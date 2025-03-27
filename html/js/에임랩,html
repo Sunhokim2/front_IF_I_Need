@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>에임 랩 게임</title>
+
+</head>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+  }
+
+
+  .ball {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: red;
+    position: absolute;
+    cursor: pointer;
+  }
+
+
+  #score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+  }
+
+  #target {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(230, 117, 117);
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+  }
+
+
+  #target.hit {
+    animation: hit 0.3s ease;
+  }
+
+  @keyframes hit {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(2);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  /* 타이머 */
+  #timer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+  }
+</style>
+
+<body>
+  <div id="score">점수 : 0</div>
+  <div id="timer">30</div>
+  <div id="target"></div>
+  <div id="container"></div>
+
+
+
+  <script>
+    const container = document.getElementById('container');
+    const balls = [];
+
+    function createBall() {
+      const ball = document.createElement('div');
+      ball.className = 'ball';
+      ball.style.left = Math.random() * (window.innerWidth - 50) + 'px';
+      ball.style.top = Math.random() * (window.innerHeight - 50) + 'px';
+
+      ball.addEventListener('click', () => {
+        animateBall(ball);
+      });
+
+      container.appendChild(ball);
+      balls.push(ball);
+    }
+
+    function positionBall(ball) {
+      const maxWidth = window.innerWidth - 50; // 공의 너비를 고려
+      const maxHeight = window.innerHeight - 50; // 공의 높이를 고려
+      ball.style.left = Math.random() * maxWidth + 'px';
+      ball.style.top = Math.random() * maxHeight + 'px';
+    }
+
+    function animateBall(ball) {
+      ball.style.transition = 'transform 0.5s';
+      ball.style.transform = 'scale(0)';
+      ++score;
+      scoreDisplay.textContent = `점수 : ${score}`;
+
+      setTimeout(() => {
+        container.removeChild(ball);
+        balls.splice(balls.indexOf(ball), 1);
+        createBall();
+      }, 500);
+    }
+
+    // 초기 공 생성
+    for (let i = 0; i < 5; i++) {
+      createBall();
+    }
+    window.addEventListener('resize', () => {
+      balls.forEach(ball => {
+        positionBall(ball);
+      });
+    });
+
+    // 추가 점수를 주는 공
+    let score = 0;
+    const scoreDisplay = document.getElementById('score');
+    const target = document.getElementById('target');
+
+    function moveTarget() {
+      const x = Math.random() * (window.innerWidth - 50);
+      const y = Math.random() * (window.innerHeight - 50);
+      target.style.left = `${x}px`;
+      target.style.top = `${y}px`;
+    }
+
+    target.addEventListener('click', () => {
+      score+=2;
+      scoreDisplay.textContent = `점수 : ${score}`;
+
+      // 애니메이션 효과 추가
+      target.classList.add('hit');
+
+      // 애니메이션이 끝난 후 클래스 제거
+      setTimeout(() => {
+        target.classList.remove('hit');
+      }, 300); // 애니메이션 지속 시간과 동일하게 설정
+
+      moveTarget();
+    });
+
+    // 30초 타이머
+    let time = 30;
+    const timerDisplay = document.getElementById('timer');
+    const timerInterval = setInterval(() => {
+      if(time === 0) {
+        clearInterval(timerInterval);
+        alert(`게임 종료! 당신의 점수는 ${score}점 입니다.`);
+        return;
+      }
+      time--;
+      timerDisplay.textContent = `${time}`;
+    }, 1000);
+
+
+    // 처음 타겟 위치 설정
+    moveTarget();
+  </script>
+
+</body>
+
+</html>
