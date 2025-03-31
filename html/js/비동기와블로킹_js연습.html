@@ -1,0 +1,106 @@
+<body>
+    <div></div>
+    <button class="target">초코초코</button>
+    <h3>✨</h3>
+    <script>
+        const url = "http://ggoreb.com/api/youtube.jsp";
+
+        // 비동기 async하는 이유는 로딩을 여러갈래로 하기 위함이다.
+        async function run() {
+            // 블로킹을 위해await를 사용하는 이유는 API통신이 다 되어야 이후 .json()불러오는것에 문제가 없기 때문이다.
+            const res = await fetch(url);
+            const data = await res.json();
+            console.log(data);
+            const items = data.items;
+            for (const item of items) {
+                const snippet = item.snippet;
+                const title = snippet.title;
+
+                // 업데이트에 따라 비디오Id명이 다를 수 있기 때문에 그에 맞는 예외처리를 해줘야함
+                const id = item.id;
+                let playId = '';
+                if ('videoId' in id) {
+                    playId = id.videoId;
+                } else if ('channelId' in id) {
+                    playId = id.channelId;
+                } else {
+                    playId = id.playlistId;
+                }
+                console.log(title);
+
+            }
+
+
+            // const results = data.results; //리스트 []
+            // for (const result of results) {
+            //     // api로 받은 json데이터 내부의 key값을 접근해서 value값을 불러온다.
+            //     const original_title = result.original_title;
+            // }
+
+            // // 또는 foreach로 불러오기
+            // results.forEach(element => {
+            //     console.log(element.original_title);
+
+            // });
+        }
+
+        // map 사용하기
+        const arr = [1, 2, 3, 4, 5];
+        const arr2 = arr.map((v, i, a) => {
+            return `<p>${v}</p>`;
+        })
+        arr2.forEach((v) => {
+            document.querySelector('div').innerHTML += v;
+        })
+
+
+        // document 에 글자 추가하는 방법 1번 
+        const h1 = document.createElement('h1');
+        const text = document.createTextNode('안녕하세요');
+
+        h1.appendChild(text);
+        document.body.appendChild(h1);
+
+        // 2번 방법
+        document.body.innerHTML += '<h2> 2번방법 </h2>'
+
+        // 버튼을 눌러 이미지 랜덤 체인지
+        document.querySelector('button').addEventListener('click', () => {
+            const targetimg = document.querySelector('.target > img');
+            if (targetimg) {
+                targetimg.remove();
+            }
+
+            const img = document.createElement('img');
+            let num = parseInt(Math.random() * 6 + 1);
+            img.setAttribute('src', `http://ggoreb.com/images/choco/${num}.jpg`);
+
+            const target = document.querySelector('.target');
+            target.appendChild(img);
+        })
+
+        // 키보드로 이모티콘 이동하기
+        const star = document.querySelector('h3');
+        star.style.position = 'absolute';
+        let [x, y] = [0, 0];
+        const block = 10;
+        const print = (e) => {
+            star.style.left = `${x * block}px`;
+            star.style.top = `${y * block}px`;
+        };
+        print();
+
+        const [left, up, right, down] = [37, 38, 39, 40];
+        document.body.addEventListener('keydown', (event) => {
+            switch (event.keyCode) {
+                case left: x -= 1; break;
+                case up: y -= 1; break;
+                case right: x += 1; break;
+                case down: y += 1; break;
+            }
+            print();
+        });
+
+    </script>
+
+</body>
