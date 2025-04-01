@@ -2,3 +2,7 @@
     font-size: 3rem;
     background-color: aqua;
 }
+
+.box{
+    border: 2px solid black;
+}

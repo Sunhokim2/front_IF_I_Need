@@ -45,6 +45,7 @@ function Example() {
 
 
 function Nav(props) {
+  console.log('nav 생성')
   return (
     <nav>
       <ul>
@@ -54,29 +55,47 @@ function Nav(props) {
           <li className={styles.head}><a href='1.html'>HTML</a></li>
           <li><a href='2.html'>CSS</a></li>
           <li className={styles.head}><a href='3.html'>JavaScript</a></li>
+          <hr></hr>
+
+
+          {props.list.map((v, i) => {
+            // UUID : 챗지피티로 js로 UUID어떻게 만들어? 물어보기
+            return (
+              <li key={i}>
+                <a href=''>
+                  {v}
+                </a>
+              </li>
+            )
+          })}
+
+
         </div>
       </ul>
     </nav>
   )
 }
 
-function Avata(props){
-  return(
+function Avata(props) {
+  return (
     <img className='avatar'
-      src = {props.author.avataUrl}
-      alt = {props.author.name}
+      src={props.author.avataUrl}
+      alt={props.author.name}
     />
   )
 }
 // ***❗❗❗❗비상❗❗
 // return 뒤에 바로 '(' 없으면 리액트는 아무것도 없는 것으로 받아들여 아래 들어가는 내용이 누락된다!
 function App() {
-  return(
+  const list = ['원신', '붕괴:스타레일', '명조'];
+
+
+  return (
     <div className="App">
-      <Avata author={{'avataUrl':"dkjfk", 'name' : "hi"}}></Avata>
+      <Avata author={{ 'avataUrl': "dkjfk", 'name': "hi" }}></Avata>
       <Header title="야미" desc={'WWW'} className={styles.haed}></Header>
-      
-      <Nav author = {{n:"1",b:"2"}}></Nav>
+
+      <Nav author={{ n: "1", b: "2" }} list={list}></Nav>
       <Example></Example>
     </div>
   );

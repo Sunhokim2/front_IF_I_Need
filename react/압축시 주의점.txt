@@ -1,0 +1,9 @@
+리액트안으로 들어가서 node_modules 빼고 압축하면 된다.
+
+단, node_modules없이는 실행이 안되므로 vsc로 프로젝트를 열고
+///
+npm install
+
+///
+
+입력
