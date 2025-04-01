@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Input Focus 및 스페이스바 시 공백 후 '#' 추가</title>
+</head>
+<body>
+
+<input type="text" id="myInput">
+
+<script>
+  const input = document.getElementById('myInput');
+
+  input.addEventListener('focus', function() {
+    this.value += '#';
+  });
+
+
+  input.addEventListener('keyup', function(event) {
+    if (event.key === ' ') {
+      this.value += '#';
+    }
+  });
+</script>
+
+</body>
+</html>
