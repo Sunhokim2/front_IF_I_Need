@@ -45,7 +45,14 @@ function Example() {
 
 
 function Nav(props) {
+  const [list, setList] = useState(
+    ['원신', '붕괴:스타레일', '명조']
+  )
+  const [show, setShow] = useState(false);
+  const [index, setIndex] = useState(0);
+
   console.log('nav 생성')
+
   return (
     <nav>
       <ul>
@@ -56,15 +63,31 @@ function Nav(props) {
           <li><a href='2.html'>CSS</a></li>
           <li className={styles.head}><a href='3.html'>JavaScript</a></li>
           <hr></hr>
+          {/* ❗❗❗useState로 리스트안에 추가하기 */}
+          <button onClick={() => {
+            const data = Math.random();
+            list.push(data);
+            const list2 = [...list];
+            setList(list2);
+          }}>추가
+          </button>
 
-
-          {props.list.map((v, i) => {
+          {list.map((v, i) => {
             // UUID : 챗지피티로 js로 UUID어떻게 만들어? 물어보기
             return (
               <li key={i}>
                 <a href=''>
                   {v}
                 </a>
+                <button onClick={() => {
+                  list.splice(i, 1);
+                  const list2 = [...list];
+                  setList(list2);
+                }}>삭제하기</button>
+                <button onClick={() => {
+                  setShow(true);
+                  setIndex(i);
+                }}>수정</button>
               </li>
             )
           })}
@@ -72,6 +95,13 @@ function Nav(props) {
 
         </div>
       </ul>
+      {/* 수정 창은 존재하지만 보이지 않게 한다. */}
+      {/* ✨리액트에선 value값이 {list[index]}로 ✨고정된 상태에서는 onChange같은 함수가 없으면 input입력이 안된다. */}
+      {show === true ? <input value={list[index]} onChange={(e) => {
+        list[index] = e.target.value;
+        const list2 = [...list];
+        setList(list2);
+      }} /> : null}
     </nav>
   )
 }
@@ -87,15 +117,25 @@ function Avata(props) {
 // ***❗❗❗❗비상❗❗
 // return 뒤에 바로 '(' 없으면 리액트는 아무것도 없는 것으로 받아들여 아래 들어가는 내용이 누락된다!
 function App() {
-  const list = ['원신', '붕괴:스타레일', '명조'];
+  console.log('App 생성👌');
+  // const list = ['원신', '붕괴:스타레일', '명조'];
 
-
+  const [hide, setHide] = useState(false);
   return (
     <div className="App">
       <Avata author={{ 'avataUrl': "dkjfk", 'name': "hi" }}></Avata>
-      <Header title="야미" desc={'WWW'} className={styles.haed}></Header>
+      <button onClick={()=>{
+          setHide(!hide)
+        }}>숨김</button>
+      
+      {/* 이렇게 숨기면 Header내부의 변수가 초기화되므로 쿠키나 세션에 변수를 저장해야 계속 유지가될 것이다. */}
+      {
+        hide ? null :
+        <Header title="야미" desc={'WWW'} className={styles.haed}></Header>
+      }
 
-      <Nav author={{ n: "1", b: "2" }} list={list}></Nav>
+
+      <Nav author={{ n: "1", b: "2" }}></Nav>
       <Example></Example>
     </div>
   );

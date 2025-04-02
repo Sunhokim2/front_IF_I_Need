@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from './App.module.css';
 
 
@@ -15,8 +15,21 @@ function Header(props) {
     console.log('Header 생성');
     let count2 = 0;
 
+    // ❗딱한 번만 실행할면 useEffect에 대괄호 [] 를 넣음❗
+    useEffect(()=>{
+        console.log('처음에만 실행');
+        return()=>{
+            console.log('헤더 소멸❗');
+        }
+    }, []);
+    useEffect(()=>{
+        console.log('count변경 감지시실행');
+    }, [count]);
+
+    
     return (
         <header>
+            s
             <div className={styles.box}>
 
                 <button onClick={() => {
@@ -29,12 +42,15 @@ function Header(props) {
             </div>
 
             <h1>{props.title}</h1>
-            <div>
-                {props.desc}
+            <div onClick={(v)=>{
+                setCount(prev=>prev+1)
+            }}>
+                {props.desc} {count}
             </div>
 
         </header>
     )
 }
+
 
 export default Header;
