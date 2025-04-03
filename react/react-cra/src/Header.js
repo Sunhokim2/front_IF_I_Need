@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styles from './App.module.css';
 
 
@@ -26,10 +26,24 @@ function Header(props) {
         console.log('count변경 감지시실행');
     }, [count]);
 
+    function factorial(c){
+        if (c>1){
+            return c * factorial(c-1);
+        }else{
+            return 1;
+        }
+    }
+    const memo = useMemo(()=>{
+        console.log('팩토리얼 드가자~~@@@@');
+        let result = factorial(count);
+        return result;
+    }, [count]); // deps 
     
+
+
     return (
         <header>
-            s
+            
             <div className={styles.box}>
 
                 <button onClick={() => {
@@ -40,7 +54,7 @@ function Header(props) {
                 </button>
                 <p>렌더링을 새로하면서 count2는 다시 0으로 돌아간다.</p>
             </div>
-
+                <p>count팩토리얼 : {memo}</p>
             <h1>{props.title}</h1>
             <div onClick={(v)=>{
                 setCount(prev=>prev+1)
